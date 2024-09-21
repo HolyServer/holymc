@@ -29,6 +29,7 @@
 
         .container {
             text-align: center;
+            padding: 0 20px; /* Agregado padding para móviles */
         }
 
         .logo {
@@ -43,6 +44,8 @@
         .cards {
             display: flex;
             gap: 20px;
+            flex-wrap: wrap; /* Permite que las tarjetas se ajusten en pantallas pequeñas */
+            justify-content: center; /* Centra las tarjetas en móviles */
         }
 
         .card {
@@ -85,6 +88,54 @@
             border-radius: 5px;
             color: #FFFFFF;
         }
+
+        /* Estilos para el texto "Powered by (logo)" */
+        .powered-by {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 400;
+            color: #e6e6e6;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .powered-by img {
+            width: 40px;
+            height: auto;
+            margin-left: 10px; /* Separación entre el texto y el logo */
+        }
+
+        /* Ajustes para móviles */
+        @media only screen and (max-width: 600px) {
+            .card {
+                width: 100%; /* Las tarjetas ocupan todo el ancho en móviles */
+                height: auto; /* Ajusta la altura automáticamente */
+                padding: 10px;
+            }
+
+            .logo img {
+                width: 100px; /* Reduce el tamaño del logo en pantallas pequeñas */
+            }
+
+            .powered-by {
+                font-size: 12px; /* Texto más pequeño en pantallas pequeñas */
+                padding: 5px;
+            }
+
+            .powered-by img {
+                width: 30px; /* Logo más pequeño en pantallas pequeñas */
+            }
+
+            .clock {
+                font-size: 12px; /* Reloj más pequeño en móviles */
+                padding: 5px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -110,6 +161,12 @@
     </div>
 
     <div class="clock" id="clock"></div>
+
+    <!-- Sección "Powered by (logo)" -->
+    <div class="powered-by">
+        POWERED BY
+        <img src="https://i.imgur.com/d83MZ6F.png" alt="Logo">
+    </div>
 
     <script>
         function updateClock() {
