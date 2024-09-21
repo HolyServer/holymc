@@ -7,17 +7,24 @@
     <link rel="icon" type="image/png" href="https://i.imgur.com/lLQvImC.png">
 
     <style>
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('fonts/SFProDisplay-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
         body {
             background-image: url('https://i.imgur.com/RvJEOLd.gif');
             background-size: cover;
             background-position: center;
             color: #e6e6e6;
-            font-family: Arial, sans-serif;
+            font-family: 'SF Pro Display', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
         }
 
         .container {
@@ -68,6 +75,16 @@
             margin: 0;
             font-size: 14px;
         }
+
+        .clock {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #FFFFFF;
+        }
     </style>
 </head>
 <body>
@@ -78,7 +95,7 @@
         </div>
         <div class="cards">
             <a href="https://holyntw.tebex.io/" class="card" target="_blank">
-                                <p>TIENDA</p>
+                <p>TIENDA</p>
             </a>
             <a href="https://discord.gg/AVBawGymFd" class="card" target="_blank">
                 <p>DISCORD</p>
@@ -91,6 +108,19 @@
             </a>
         </div>
     </div>
+
+    <div class="clock" id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const options = { timeZone: 'America/Bogota', hour: 'numeric', minute: 'numeric', hour12: true };
+            const now = new Date().toLocaleString('es-ES', options);
+            document.getElementById('clock').textContent = now;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Llama a la función para mostrar la hora inmediatamente
+    </script>
 
 </body>
 </html>
