@@ -110,6 +110,21 @@
             margin-left: 10px; /* Separación entre el texto y el logo */
         }
 
+        .alliance-button {
+            margin-top: 20px;
+            background-color: #4b4f26;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .alliance-button:hover {
+            background-color: #3a3e1f;
+        }
+
         /* Ajustes para móviles */
         @media only screen and (max-width: 600px) {
             .card {
@@ -158,6 +173,9 @@
                 <p>HOLY PASS</p>
             </a>
         </div>
+
+        <!-- Botón de Alianzas -->
+        <button class="alliance-button" onclick="copyToClipboard()">COPIAR ALIANZA AL PORTAPAPELES</button>
     </div>
 
     <div class="clock" id="clock"></div>
@@ -177,6 +195,34 @@
 
         setInterval(updateClock, 1000);
         updateClock(); // Llama a la función para mostrar la hora inmediatamente
+
+        function copyToClipboard() {
+            const text = `🌍 [ HolyMC ] 🌍
+SURVIVAL SEMI-ANÁRQUICO 24/7 (1.16 - 1.21)
+¡Crossplay para Java y Bedrock!
+
+🔥 ¿Buscas adrenalina, PvP y libertad total? ¡HolyMC es tu lugar! 🔥
+
+⚔️ Sin hackers ni mods – Solo habilidad pura y estrategia.
+👥 Únete a un team o crea el tuyo propio y pelea por el dominio del servidor. ¡El poder está en tus manos!
+
+🎮 Compatibilidad total entre Java y Bedrock – ¡No importa desde dónde juegues, únete a la batalla!
+📊 ¡+350 jugadores en nuestro Discord, con comunidad activa y amigable!
+
+💥 TikToks y streams en vivo regularmente. ¡Sé parte de los eventos más intensos y destaca!
+📈 Contenido exclusivo con nuestros streamers y creadores – ¡haz historia con tu equipo!
+
+⏰ Servidor activo 24/7 – Siempre hay jugadores listos para la acción.
+⚡ La diversión nunca para: PvP, construcción, alianzas, ¡todo está en juego!
+
+🔗 Discord:
+ https://discord.gg/jEPGTVqVxF`;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('La Alianza Para Dc Fue Copiada Al Portapapeles!');
+            }).catch(err => {
+                console.error('Error al copiar el texto: ', err);
+            });
+        }
     </script>
 
 </body>
